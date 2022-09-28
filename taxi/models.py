@@ -22,6 +22,10 @@ class Destination:
     name = models.CharField(max_length=200)
     lat = models.FloatField()
     lan = models.FloatField()
+    
+class RankingTaxis(models.Model):
+    taxi = models.ForeignKey(Taxi,on_delete=models.CASCADE)
+    destination = models.ForeignKey(User,on_delete=models.CASCADE)
 
 
 
