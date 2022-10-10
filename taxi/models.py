@@ -7,17 +7,16 @@ from django.contrib.auth.models import User
 
 class Passanger(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name="passenger")
-    #pass_fname
-    #pass_sname
-    #pass_cellphone
-    #dest_spot
-    #card_number
-    #payment_method
+    pass_fname = models.CharField(max_length=200)
+    pass_sname = models.CharField(max_length=200)
+    pass_cellphone = models.CharField(max_length=200)
+    dest_spot = models.CharField(max_length=200)
+    card_number = models.CharField(max_length=200)
+    payment_method = models.CharField(max_length=200)
 
 
 class Driver(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name="driver")
-    #attribues to consider according to ERD
     #taxi_registrationID as a foreign key
     #driver_fname
     #driver_sname
