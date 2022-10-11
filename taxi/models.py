@@ -17,32 +17,30 @@ class Passanger(models.Model):
 
 class Driver(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name="driver")
-    #taxi_registrationID as a foreign key
-    #driver_fname
-    #driver_sname
-    #driver_cellphone
-    #driver_homeaddress
-    #driver_email
+    taxi_registrationID = models.ForeignKey(Taxi,on_delete=models.CASCADE)
+    driver_fname = models.CharField(max_length=200)
+    driver_sname = models.CharField(max_length=200)
+    driver_cellphone = models.CharField(max_length=200)
+    driver_homeaddress = models.CharField(max_length=200)
+    driver_email = models.CharField(max_length=200)
 
 
 class Taxi(models.Model):
     registration = models.CharField(max_length=200)
     manufature = models.CharField(max_length=200)
     model = models.CharField(max_length=200)
-    #attribues to consider according to ERD
-    #driver_licenceID
-    #rank_name
-    #passenger_id
+    driver_licenceID = models.ForeignKey(Taxi,on_delete=models.CASCADE)
+    rank_name = models.ForeignKey(Taxi,on_delete=models.CASCADE)
+    passenger_id = models.ForeignKey(Taxi,on_delete=models.CASCADE)
     
    
 class Destination:
     name = models.CharField(max_length=200)
     lat = models.FloatField()
     lan = models.FloatField()
-    #attribues to consider according to ERD
-    #dest_taxi_station
-    #rank_id
-    #price_id
+    dest_taxi_station = 
+    rank_id = models.CharField(max_length=200)
+    price_id
       
     
 class RankingTaxis(models.Model):
@@ -53,7 +51,11 @@ class RankingTaxis(models.Model):
 class Rank(models.Model):
     name = models.CharField(max_length=200)
     ranking_taxis = models.ManyToManyField(RankingTaxis)
-    #attribues to consider according to ERD
+    
+class paymentMethod(models.Model):
+    pay_methodID = user = models.OneToOneField(User,on_delete=models.CASCADE,related_name="paymentMethod")
+    pay_option = models.CharField(max_length=200) 
+ 
     
 
     def __str__(self) -> str:
